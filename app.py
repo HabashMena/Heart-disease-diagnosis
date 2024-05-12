@@ -8,8 +8,6 @@ from frontend.API_handelers import handle_submit
 
 st.set_page_config(page_title='Patient Info', page_icon='❤️‍🩹')
 
-
-
 from dotenv import load_dotenv
 
 def main():
@@ -20,9 +18,6 @@ def main():
     # Access environment variables
     value = os.getenv("ENV")
     API_path =os.getenv('api_path')
-    
-    #st.write(value)
-    #print(value)
 
     biometrics = create_input_form()
 
@@ -36,6 +31,7 @@ def main():
             res = requests.post(API_path + 'add_patient_data', json=biometrics)
             if res.status_code == 200:
                 print("row added !! ")
+
 
 if __name__ == '__main__':
 

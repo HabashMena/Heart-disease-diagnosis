@@ -3,7 +3,10 @@ import csv
 import os
 
 # Path to your SQLite database file
-db_file = 'clevland_replica.db'
+db_file = 'database/clevland_replica.db'
+db_file = os.path.join(os.getcwd() , db_file)
+
+print(db_file)
 
 # Check if the file exists before attempting to delete it
 if os.path.exists(db_file):
@@ -14,7 +17,7 @@ else:
 
 
 # creating DataBase
-con = sqlite3.connect("clevland_replica.db")
+con = sqlite3.connect(db_file)
 cur = con.cursor()
 
 print('Database Created!!')
